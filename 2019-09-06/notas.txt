@@ -1,0 +1,6 @@
+git init
+git add notas.txt
+git commit -m "Mensaje"
+git remote add .....
+export https_proxy="https://dfortizgu:PASSWORD@proxyapp.unal.edu.co:8080/"
+git push - origin master
