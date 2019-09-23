@@ -1,14 +1,21 @@
 #include <cstdio>
 #include <cmath>
-int main (void){
-	double x = 1.0;
-	for (int i = 1; i <=16; ++i)
+double func (double x, int N){
+	double sum = 1.0/6;
+	double term = 1.0/6;
+	for (int i = 1; i <=N; ++i)
 	{
-		double func = (x-std::sin(x));
-		if(func==0.0)break;
-		printf("%20.16e %20.16f\n", x, func);
-		x/=10.0;
-
+		term*=(-1.0)*x/((2*i+5)*(2*i+4));
+		sum+=term;
+	}
+	return sum;
+}
+int main (void){
+	double x = 1;
+	for (int i = 0; i < 15; ++i)
+	{
+		printf("%d %.16f\n",i ,func(x,20));
+		x/=10;
 	}
 	return 0;
 }
