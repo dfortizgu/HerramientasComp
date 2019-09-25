@@ -1,0 +1,9 @@
+all : github 
+
+.PHONY : clean
+clean :
+	rm -f *~ *# *.x a.out
+
+github : *.cpp
+	git add $<
+	git add notas.txt
