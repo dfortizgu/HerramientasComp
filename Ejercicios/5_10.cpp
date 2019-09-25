@@ -12,6 +12,7 @@ REAL exp (REAL x){
 			sum+ = term;
 			term* = x/(i+1);
 			i++;
+			
 		}
 		return sum;
 	}else{
