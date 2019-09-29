@@ -9,7 +9,7 @@ int main (void){
   for(int i=0 ; i<=NSTEPS ; i++){
     
     double x = xmin + i*dx;
-    std::printf("%25.16e\t %25.16e\n", x, std::cyl_bessel_i(1,x));
+    std::printf("%25.16e\t %25.16e\n", x, std::cyl_bessel_i(1, x);
   }
 
   return 0; 
