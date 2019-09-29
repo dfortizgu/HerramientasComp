@@ -1,0 +1,4 @@
+graficar : plot.cpp
+	g++ -o a.exe plot.cpp
+	a > "datos.txt"
+	gnuplot datos.txt
