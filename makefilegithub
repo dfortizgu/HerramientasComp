@@ -1,3 +1,4 @@
+#Archivo makefile que añade, hace commit y push a los archivos .cpp
 all : github 
 
 .PHONY : clean
@@ -6,4 +7,6 @@ clean :
 
 github : *.cpp
 	git add $^
-	git commit 
+	git commit
+	git push
+
