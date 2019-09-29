@@ -7,3 +7,6 @@ clean :
 github : *.cpp
 	git add $<
 	git add notas.txt
+
+
+	
