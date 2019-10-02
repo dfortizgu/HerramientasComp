@@ -3,7 +3,7 @@ all : github
 
 .PHONY : clean
 clean :
-	rm *~ *# *.x a.out a.exe *.o
+	rm -f *~ *# *.x a.out a.exe *.o
 
 github : *.cpp
 	git add $^
