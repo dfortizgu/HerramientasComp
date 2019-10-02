@@ -44,7 +44,7 @@ datos.txt : sumas.x
 suma.pdf : plot.gp datos.txt
 	gnuplot plot.gp
 #Borrar archivos basura, se ejecuta con $ make clean
-.PHONY : clear
+.PHONY : clean
 clean :
 	rm -f sumas.x datos.txt suma.pdf
 
