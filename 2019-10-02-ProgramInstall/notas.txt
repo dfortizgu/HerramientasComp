@@ -1,0 +1,52 @@
+echo $PATH
+En PATH (una variable) se encuentran los comandos que se ejecutan desde consolas
+
+$ hace indica los valores de lo que se le ponga en frente
+Añadir un directorio, por ejmplo $HOME/local/bin se escribe
+export PATH=$PATH:$HOME/bin
+
+Al instalar un programa en el HOME se debe cambiar el PATH y si incluye librerias se debe ejecutar como
+
+ g++ -I $HOME/local/include -L $HOME/local/lib filename.cpp -llibname
+
+-I :donde buscar los include
+-L :donde buscar las librarias
+-l :linkea las librerias
+
+Despues de descarga el programa a instalar usualmente viene en formato .tar
+para descomprimir se usa en consola:
+
+tar xf filename.tar.gz
+
+La compilacón esta especiicada en el README
+
+Para instalar se debe primero configurar la ruta de instalación, como configure esta instalado en la carpeta descomprimida se coloca en la consola
+
+./configure --prefix=$HOME/local 
+
+El ./ es porque esta en la carpeta donde se ejecuta el comando, no está en el PATH
+
+Para compilar se usa:
+
+make -j 2
+
+El dos especifica el numero de nucleos que se usarán en la compilación
+
+para intalar:
+
+make install
+
+Para el ejemplo se compila con:
+
+gcc example.c -lm -lfftw3
+
+gcc porque es un archivo c, -lm linkea la libreria matematica y -lfftw3 linkea fftw, (el fftw3 se encuentra en la consola con
+locate fftw
+, una vez en locate se busca lib64/libnamelib, se agrega con -lnamelib)
+
+Sin embargo estas banderas buscan en el sistema operativo, para que busque lo que se instaló se debe compilar como
+
+gcc -I $HOME/local/include -L $HOME/local/lib example.c -lm -lfftw3
+
+
+
