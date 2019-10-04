@@ -26,9 +26,9 @@ double sn (double x){
 		}
 		double npi = 3.1415926535*n;
 		if(n%2==0){
-			return sinu(x+npi);
+			return sinint(x+npi);
 		}else{
-			return -sinu(x+npi);
+			return -sinint(x+npi);
 		}
 	}else{
 		int n = 0;
@@ -37,9 +37,9 @@ double sn (double x){
 		}
 		double npi = 3.1415926535*n;
 		if(n%2==0){
-			return sinu(x-npi);
+			return sinint(x-npi);
 		}else{
-			return -sinu(x-npi);
+			return -sinint(x-npi);
 		}
 
 	}
