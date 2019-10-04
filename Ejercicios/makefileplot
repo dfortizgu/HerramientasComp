@@ -1,8 +1,8 @@
 ALL : datos.txt gnuplot 
-OBJ = tan.cpp
+OBJ = arcsin.cpp
 
 datos.txt : $(OBJ)
-	g++ tan.cpp
+	g++ arcsin.cpp
 	a > $@
 
 gnuplot : datos.txt plot.gp
