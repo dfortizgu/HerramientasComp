@@ -4,7 +4,6 @@
 double tanu (double u){
 	return u*((135135.0-17336.106*u*u+379.23564*u*u*u*u-1.0118625*u*u*u*u*u*u)/(135135.0-62381.106*u*u+3154.9377*u*u*u*u+28.17694*u*u*u*u*u*u));
 
-
 }
 
 double tanint (double x){	

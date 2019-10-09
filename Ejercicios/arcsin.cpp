@@ -5,6 +5,7 @@ double arcsinu (double u){
 	return u*(1.0+u*u/6.0+0.075*u*u*u*u+0.04464286*std::pow(u,6)+0.03038182*std::pow(u,8)+0.022375*std::pow(u,10)+0.01731276*std::pow(u,12)+0.01433124*std::pow(u,14)+0.009342806*std::pow(u,16)+ 0.01835667*std::pow(u,18)-0.01186224*std::pow(u,20)+0.03162712*std::pow(u,22)); 
 }
 
+
 double arcsin(double x){
 	double a = 0.0;
 	double b = 0.0;

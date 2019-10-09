@@ -1,2 +1,3 @@
 a.exe : foo.o bar.o
-	g++ -o a.exe foo.o bar.o main.cpp 
+	g++ -o a.exe foo.o bar.o main.cpp
+	
