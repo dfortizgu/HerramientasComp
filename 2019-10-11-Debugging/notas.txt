@@ -1,0 +1,1 @@
+Para incluir el Debugger se usa la bandera -g en la compilación
