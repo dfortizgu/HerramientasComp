@@ -1,0 +1,14 @@
+Par autilizar DDD se compila con -g y se ejecuta el comando
+$ ddd ./a.out
+
+tener ubsigned int a = b
+pero b es negativo es un error grave que puede generar overflow, no toma el valor absoluto
+
+Un truco util cuando se hace un if(x==0)es escribir if(0==x) pues si solo se escribe 0=x va a detectar el error mientras que x=0 no.
+
+Correr con valgrind
+$ valgrind ./a.out
+Activar veriaficación de perdida de memoria en valgrind
+$ valgrind --leak-check=yes ./a.out
+
+Para utilizar valgrind se recomienda compilar sin los sanitizers
