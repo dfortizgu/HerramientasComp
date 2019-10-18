@@ -1,0 +1,37 @@
+Para medir el timepo de ejecucion se puede usar
+$ time ./a.out
+
+o
+
+$ /usr/bin/time ./a.out
+
+Una forma que entrega mayor informacion es
+$ gcc -Wall -pg test_gprof.c -o test_gprof
+
+-pg habilita profiling en el compilador
+
+Al ejecutar el archivo compilado con -pg no solo se ejecuta el archivo sino que genera un archivo llamado gmon.out (un binario). Este archivo no puede lerse, para poder usarlo se usa
+
+$ gprof ./a.out gmon.out > infoprof.txt
+
+Si se ejecuta de nuevo el archivo se cambia gmon.out y al sacar la información con gprof esta cambia
+
+Llenado de arreglos n-dimensionales
+En c++ se llenan los espacios de memoria por filas, es decir que es mas eficiente llenar como
+ for i
+     for j
+      	 [i][j]
+
+si se hace al contrario
+for j
+    for i
+    	[i][j]
+
+es mucho mas lento debido a la forma en que se almacena en la memoria ram. En fortrant es al contrario
+
+Cuando se hacen if,else if, else if ... tambien hace el programa mas lento
+
+Para obtener información de hardware se usa perf
+$ perf stat ./a.out
+$ perf record ./a.out
+$ perf report
