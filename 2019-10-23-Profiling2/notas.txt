@@ -1,0 +1,53 @@
+Con valgrind tambien se puede realizar profiling
+se compila
+$ gcc -g -ggdb name.c
+
+el -ggdb no es del todo necesario pero agrega mayor información
+para ejecutar valgrind para profiling se usa la bandera --tool=callgrind a.out
+
+$ valgrind --tool=callgrind ./a.out
+
+Esto arroja cierta información pero lo que interesa es el archivo que se genera en la carpeta callgrind.out.24939 El numero del final es un identificador de proceso. El archivo es un archivo ASCII pero para leer la información se usa
+
+$ callgrind_annotate --auto=yes callgrind.out.24939
+
+Esto indica linea a linea el numero de instrucciones que se ejecutan por cada una Una forma de ver esta información de forma gráfica es usar
+
+$ kcachegrind calgrind.out.24939
+
+Para obtener mas información de valgrind se usa con la banderas
+
+$ valgrind --tool=callgrind --dump-instr=yes --collect-jumps=yes ./a.out
+
+Esto permite ver, entre otras cosas las operaciones del procesador
+
+Tambien se puede utilizar
+
+$ valgrind --tool=callgrind --tool=cachegrind ./a.out
+
+esto genera el archivo cachegrind.out.36284 que se puede abrir con Kcachegrind
+
+Se puede ver esta informacion en consola con callgrind_annotate
+
+$ callgrind_annotate --auto=yes cachegrind.out.32807
+
+Usar google performance tools
+
+Para buscar en spack se debe usar source
+$ source $HOME/carpeta/.../spack/share/spack/setup-env.sh
+El primer spack es donde esta instalado spack
+$ spack list gperf
+Se buscan los programas con gperf en el nombre
+$ spack info gperftools
+Da la información de gperftools para verificar que si es lo que se está buscando
+$ spack install gpertools
+Intala
+
+$ spack load gperftools
+
+Para usar gperftools se usa -lprofriler
+
+$ gcc -g -ggdb cache_lines.c -lprofiler
+
+Siguiendo las intrucciones en github de gpergtool se hace
+$ CPUPROFILE=/tmp/proof.out ./a.out
