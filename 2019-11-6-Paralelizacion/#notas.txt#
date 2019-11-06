@@ -1,0 +1,26 @@
+Repartir diferentes procesos en varios nucleos con parallel
+
+OpenMP: Solo para una maquina con multiples nucleos
+
+Ejemplo de OpenMp
+
+#include <cstdio>
+
+int main (void)
+{
+#pragma omp parallel //Activación
+  {
+    printf("Hola mundo\n");
+  }
+  return 0;
+}
+
+Para compilar
+$ g++ ejemploOpenMP.cpp -fopenmp
+
+Este ejemplo produce 8 (o el numero de nucleos del computador) Hola mundo, que fue generado cada uno por separado en un nucleo distinto
+
+MPI: Mas poderoso que OpenMP pues permite realizar procesos en simultaneo en diferentes computadores
+para compilar y correr:
+$ mpic++ ejemploMPI.cpp
+$ mpirun -np 4 ./a.out
