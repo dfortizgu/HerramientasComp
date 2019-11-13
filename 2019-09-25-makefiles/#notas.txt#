@@ -1,0 +1,69 @@
+Make file
+
+Archivo makefile
+
+target : input files
+       comandos ej: g++ main.cpp -o name.x
+
+^TAB, NO espacios
+
+Ejecutar makefile
+$  make -f makefile
+
+(makefile es el nombre del archivo, si se llama Makefile, con M
+mayuscula solo es necesario poner make en la consola)
+
+En el archivo makefile se puede usar $@ como variable del target, y $< como
+la variable de las entradas
+
+sumas.x : sumas_error.cpp
+	g++ $< -o $@
+
+$< toma todo el input, si hay algo que no esta en el directorio genera error
+
+Se pueden generar varias reglas:
+
+
+all : sumas.x datos.txt
+sumas.x : sumas_error.cpp
+	g++ $< -o $@
+datos.txt : sumas.x 
+	./sumas.x > datos.txt
+
+all : sumas.x datos.txt verifica que esten los archivos, si no estan los genera a partir de las reglas en el archivo
+
+Comentarios dentro de make #comentario
+
+Se pueden generar comandos de borrado con clean
+
+all : sumas.x datos.txt suma.pdf #Verifica que esten los archivos, si no estan los genera a partir de las reglas en el archivo
+sumas.x : sumas_error.cpp
+	g++ $< -o $@ 
+datos.txt : sumas.x 
+	./sumas.x > $@ 
+suma.pdf : plot.gp datos.txt
+	gnuplot plot.gp
+#Borrar archivos basura, se ejecuta con $ make clean
+.PHONY : clear
+clean :
+	rm -f sumas.x datos.txt suma.pdf
+
+
+Makefile para modular
+
+all : sum1.o sum2.o sum3.o sumas.x
+
+sum1.o : sum1.cpp
+	g++ -c $< -o $@
+sum2.o : sum2.cpp
+	g++ -c $< -o $@
+sum3.o : sum3.cpp
+	g++ -c $< -o $@
+sumas.x :sumas_error.cpp sum1.o sum2.o sum3.o 
+	g++ $^ -o $@
+.PHONY : clean
+clean :
+	rm -f *.o *~
+
+otra forma de hacer mas corto este codigo es
+

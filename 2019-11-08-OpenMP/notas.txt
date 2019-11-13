@@ -1,0 +1,6 @@
+Las variables compatidas tienen la misma direccion de memoria para todos los threads, las privadas son diferentes para cada uno
+
+Para modificar una variable se necesita que esta sea privada, si es compartida y diferente threads intentan modificarla se tendran errores
+
+Para compilar g++ -fopenmp name.cpp
+Y correr ./a.out
